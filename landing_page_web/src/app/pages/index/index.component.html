@@ -9,9 +9,10 @@
         <span>LifeAI</span>
       </div>
       <ul class="nav-menu">
-        <li><a href="javascript:void(0)" (click)="scrollToSection('hero')">Início</a></li>
-        <li><a href="javascript:void(0)" (click)="scrollToSection('sobre-nos')">Sobre nós</a></li>
-        <li><a href="javascript:void(0)" (click)="scrollToSection('contato')" class="btn-contact">Contato</a></li>
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#projeto">O Projeto</a></li>
+        <li><a href="#sobre-nos">Sobre nós</a></li>
+        <li><a href="#contato" class="btn-contact">Contato</a></li>
       </ul>
     </nav>
   </header>
@@ -20,11 +21,7 @@
     <section id="hero" class="hero-section container">
       <div class="hero-content fade-in-left">
         <div class="brand-wrapper">
-          <img
-            src="assets/img/lifeAI_logo.png"
-            alt="Logo da LifeAI"
-            class="hero-logo"
-          />
+          <img src="assets/img/lifeAI_logo.png" alt="Logo da LifeAI" class="hero-logo" />
           <h1 class="brand">LifeAI</h1>
         </div>
         <p class="hero-tagline">
@@ -32,18 +29,49 @@
           para elevar o seu dia a dia.
         </p>
         <div class="hero-actions">
-            <button class="btn-primary" (click)="scrollToSection('contato')">Começar Agora</button>
+          <a href="#contato" class="btn-primary">Começar Agora</a>
         </div>
       </div>
 
       <div class="hero-visual fade-in-right">
         <div class="qr-card glass-card">
-          <img
-            src="assets/img/qr.png"
-            alt="Baixe o App"
-            class="qr-code"
-          />
+          <img src="assets/img/qr.png" alt="Baixe o App" class="qr-code" />
           <p>Escaneie para baixar</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projeto" class="section-padding">
+      <div class="container">
+        <div class="project-intro center-text fade-in-up">
+          <h2 class="section-title">Inovação nascida na FPF Tech</h2>
+          <p class="section-subtitle">
+            Um projeto acadêmico com ambição profissional: propagar saúde através da tecnologia.
+          </p>
+          <p class="project-description">
+            O <strong>LifeAI</strong> é uma solução integrada de bem-estar desenvolvida em <strong>Kotlin</strong>. 
+            Utilizamos Inteligência Artificial para transformar seus dados diários em recomendações personalizadas.
+          </p>
+        </div>
+
+        <div class="tech-stack-grid">
+          <div class="tech-card glass-card fade-in-left">
+            <div class="icon-wrapper">📱</div>
+            <h3>Mobile Nativo</h3>
+            <p>App Android construído com <strong>Jetpack Compose</strong> e arquitetura <strong>MVVM</strong>.</p>
+          </div>
+
+          <div class="tech-card glass-card fade-in-up">
+            <div class="icon-wrapper">☁️</div>
+            <h3>Infraestrutura AWS</h3>
+            <p>Orquestração robusta utilizando <strong>Kubernetes (K3s)</strong> e Docker para deploy contínuo.</p>
+          </div>
+
+          <div class="tech-card glass-card fade-in-right">
+            <div class="icon-wrapper">🔒</div>
+            <h3>Backend & Dados</h3>
+            <p>APIs seguras em <strong>Node.js/Django</strong> com banco de dados MySQL integrado.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -83,10 +111,9 @@
         <h2 class="section-title">Vamos conversar?</h2>
         <p class="contact-desc">Estamos prontos para transformar sua ideia em realidade.</p>
         
-        <a href="mailto:lifeaicontato&#64;gmail.com" class="email-link">
-            lifeaicontato&#64;gmail.com
+        <a href="mailto:lifeaicontato@gmail.com" class="email-link">
+          lifeaicontato&#64;gmail.com
         </a>
-        
       </div>
     </section>
   </main>
