@@ -1,0 +1,104 @@
+<body class="page-index">
+  <div class="ambient-light one"></div>
+  <div class="ambient-light two"></div>
+
+  <header class="glass-header">
+    <nav class="container-nav">
+      <div class="logo-mini">
+        <img src="assets/img/lifeAI_logo.png" alt="LifeAI Icon">
+        <span>LifeAI</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="javascript:void(0)" (click)="scrollToSection('hero')">Início</a></li>
+        <li><a href="javascript:void(0)" (click)="scrollToSection('sobre-nos')">Sobre nós</a></li>
+        <li><a href="javascript:void(0)" (click)="scrollToSection('contato')" class="btn-contact">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero-section container">
+      <div class="hero-content fade-in-left">
+        <div class="brand-wrapper">
+          <img
+            src="assets/img/lifeAI_logo.png"
+            alt="Logo da LifeAI"
+            class="hero-logo"
+          />
+          <h1 class="brand">LifeAI</h1>
+        </div>
+        <p class="hero-tagline">
+          Tecnologia e automação inteligente <br />
+          para elevar o seu dia a dia.
+        </p>
+        <div class="hero-actions">
+            <button class="btn-primary" (click)="scrollToSection('contato')">Começar Agora</button>
+        </div>
+      </div>
+
+      <div class="hero-visual fade-in-right">
+        <div class="qr-card glass-card">
+          <img
+            src="assets/img/qr.png"
+            alt="Baixe o App"
+            class="qr-code"
+          />
+          <p>Escaneie para baixar</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-nos" class="section-padding">
+      <div class="container">
+        <h2 class="section-title">Quem somos</h2>
+        <p class="section-subtitle">Mentes brilhantes por trás da inovação.</p>
+        
+        <div class="team-grid">
+          <a href="https://github.com/dissectedv" target="_blank" class="member-card glass-card">
+            <div class="avatar-placeholder">JS</div>
+            <h3>João Sampaio</h3>
+            <span class="role">Front-end Developer</span>
+            <p>Foco em interfaces inteligentes e responsivas.</p>
+          </a>
+          
+          <a href="https://github.com/Gust4hib" target="_blank" class="member-card glass-card">
+            <div class="avatar-placeholder">GF</div>
+            <h3>Gustavo Fernandes</h3>
+            <span class="role">UX/UI Specialist</span>
+            <p>Experiência em design centrado no usuário.</p>
+          </a>
+          
+          <a href="https://github.com/GuiSilva1k2k" target="_blank" class="member-card glass-card">
+            <div class="avatar-placeholder">GS</div>
+            <h3>Guilherme Silva</h3>
+            <span class="role">Software Engineer</span>
+            <p>Paixão por IA, arquitetura e automação.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="section-padding contact-section">
+      <div class="container center-text">
+        <h2 class="section-title">Vamos conversar?</h2>
+        <p class="contact-desc">Estamos prontos para transformar sua ideia em realidade.</p>
+        
+        <a href="mailto:lifeaicontato&#64;gmail.com" class="email-link">
+            lifeaicontato&#64;gmail.com
+        </a>
+        
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <strong>LifeAI</strong>
+      </div>
+      <div class="copy">
+        © {{ currentYear }} LifeAI. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+</body>

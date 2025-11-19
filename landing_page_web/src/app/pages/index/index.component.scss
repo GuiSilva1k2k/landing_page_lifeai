@@ -1,0 +1,304 @@
+/* --- Variáveis & Configurações --- */
+:root {
+  --bg-deep: #020406; /* Fundo quase preto absoluto para contraste */
+  --primary-blue: #2979FF;
+  --accent-cyan: #00E5FF;
+  --accent-purple: #D500F9; /* Nova cor para enriquecer o gradiente */
+  
+  /* Gradiente Global (Texto e Detalhes) */
+  --gradient-main: linear-gradient(90deg, var(--accent-cyan), var(--primary-blue));
+  --gradient-glow: linear-gradient(135deg, rgba(41, 121, 255, 0.1), rgba(0, 229, 255, 0.05));
+  
+  --text-main: #FFFFFF;
+  --text-muted: #B0BEC5;
+  
+  --card-border: 1px solid rgba(0, 229, 255, 0.15); /* Borda sutil padrão */
+  --card-border-hover: 1px solid rgba(0, 229, 255, 0.5); /* Borda forte no hover */
+  
+  --font-main: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  
+  /* Fundo Mesh Gradient (Fixo) */
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(41, 121, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(213, 0, 249, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.1) 0%, transparent 60%);
+  background-attachment: fixed; /* O gradiente fica parado enquanto a página rola */
+}
+
+/* --- Luzes Ambientes Animadas (Opcional, para dar vida) --- */
+.ambient-light {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.6;
+  animation: pulseLight 8s infinite alternate;
+}
+
+.ambient-light.one {
+  top: -50px; left: -50px; width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(41, 121, 255, 0.2), transparent 70%);
+}
+.ambient-light.two {
+  bottom: 0; right: 0; width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.15), transparent 70%);
+  animation-delay: 2s;
+}
+
+@keyframes pulseLight {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.1); opacity: 0.7; }
+}
+
+/* --- Layout Utils --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-padding { padding: 120px 0; }
+
+.section-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -1px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 70px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Header Glass --- */
+.glass-header {
+  position: fixed;
+  top: 0; width: 100%;
+  background: rgba(2, 4, 6, 0.85); /* Mais escuro para ler melhor o menu */
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  z-index: 1000;
+  padding: 20px 0;
+  
+  .container-nav {
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+}
+
+.logo-mini {
+  display: flex; align-items: center; gap: 12px;
+  font-weight: 700; font-size: 1.3rem; color: #fff;
+  img { width: 32px; height: auto; filter: drop-shadow(0 0 5px var(--primary-blue)); }
+}
+
+.nav-menu {
+  list-style: none; display: flex; align-items: center; gap: 40px;
+  
+  a {
+    text-decoration: none; color: var(--text-muted); font-weight: 500; transition: 0.3s;
+    &:hover { color: var(--accent-cyan); text-shadow: 0 0 8px rgba(0,229,255,0.4); }
+  }
+  
+  .btn-contact {
+    background: transparent;
+    border: 1px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+    
+    &:hover {
+      background: var(--accent-cyan);
+      color: #000;
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+    }
+  }
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 100px;
+  
+  @media (max-width: 900px) {
+    flex-direction: column-reverse; text-align: center; gap: 60px; justify-content: center;
+  }
+}
+
+.hero-content {
+  flex: 1; max-width: 650px;
+  
+  .brand-wrapper {
+    display: flex; align-items: center; gap: 25px; margin-bottom: 25px;
+    @media (max-width: 900px) { justify-content: center; }
+  }
+
+  .hero-logo { width: 190px; height: auto; filter: drop-shadow(0 0 15px rgba(41,121,255,0.4)); }
+
+  .brand {
+    font-size: 4.5rem; font-weight: 900; letter-spacing: -2px;
+    background: linear-gradient(120deg, #fff 0%, var(--primary-blue) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  .hero-tagline {
+    font-size: 1.4rem; color: var(--text-muted); margin-bottom: 50px; line-height: 1.6;
+  }
+}
+
+/* Botão Principal com Gradiente Rico */
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+  border: none; color: #fff;
+  padding: 18px 45px; font-size: 1.1rem; font-weight: 700;
+  border-radius: 50px; cursor: pointer;
+  box-shadow: 0 4px 25px rgba(41, 121, 255, 0.4);
+  transition: transform 0.2s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 35px rgba(0, 229, 255, 0.6);
+  }
+}
+
+/* --- Card com ALTO CONTRASTE --- */
+.glass-card {
+  /* Fundo mais escuro e opaco para contrastar com o gradiente da body */
+  background: linear-gradient(145deg, rgba(20, 30, 40, 0.8) 0%, rgba(10, 15, 20, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  
+  /* Borda fina e brilhante */
+  border: var(--card-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra profunda para separar do fundo */
+  transition: all 0.4s ease;
+  position: relative; overflow: hidden;
+
+  /* Brilho sutil ao passar o mouse (efeito de luz interna) */
+  &::before {
+    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    transition: 0.5s;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    border: var(--card-border-hover);
+    box-shadow: 0 15px 40px rgba(0, 229, 255, 0.15); /* Glow colorido externo */
+    
+    &::before { left: 100%; }
+  }
+}
+
+/* QR Code Section */
+.qr-card {
+  padding: 40px; border-radius: 30px; text-align: center; max-width: 340px; margin-left: auto;
+  
+  img {
+    width: 100%; border-radius: 16px; margin-bottom: 20px;
+    border: 2px solid rgba(255,255,255,0.1);
+  }
+  
+  p {
+    color: var(--accent-cyan); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 0.9rem;
+  }
+}
+
+/* --- Team Grid --- */
+.team-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+}
+
+.member-card {
+  text-decoration: none; padding: 50px 30px; border-radius: 24px; text-align: center; color: inherit; display: block;
+  
+  .avatar-placeholder {
+    width: 90px; height: 90px; margin: 0 auto 25px;
+    background: linear-gradient(135deg, #102030, #050A10);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; font-weight: bold; color: var(--accent-cyan);
+    border: 2px solid rgba(0, 229, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
+  }
+
+  h3 { font-size: 1.5rem; margin-bottom: 8px; color: #fff; }
+  
+  .role {
+    display: inline-block; font-size: 0.8rem; padding: 6px 12px; border-radius: 20px;
+    background: rgba(41, 121, 255, 0.15); color: var(--accent-cyan); margin-bottom: 20px; font-weight: 700;
+  }
+  
+  p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+}
+
+/* --- Contact Section --- */
+.contact-section {
+  background: radial-gradient(circle at center, rgba(41, 121, 255, 0.08) 0%, transparent 60%);
+}
+
+.center-text { text-align: center; }
+
+.email-link {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #FFFFFF; /* Branco puro por padrão */
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.email-link:hover {
+  transform: scale(1.05);
+  color: var(--accent-cyan); /* Muda para azul neon no hover */
+  text-shadow: 0 0 20px rgba(0, 229, 255, 0.6); /* Glow externo, não embaça o texto */
+}
+
+/* --- Footer --- */
+footer {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 60px 0; background-color: #010203; font-size: 0.9rem;
+
+  .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
+  
+  .footer-brand { font-size: 1.2rem; font-weight: bold; color: #fff; letter-spacing: 1px; }
+
+  .footer-links {
+    display: flex; gap: 40px;
+    a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; &:hover { color: var(--accent-cyan); } }
+  }
+  
+  .copy { color: #455A64; }
+}
+
+/* Animations */
+.fade-in-left { animation: fadeLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+.fade-in-right { animation: fadeRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; animation-delay: 0.2s; }
+
+@keyframes fadeLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes fadeRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
