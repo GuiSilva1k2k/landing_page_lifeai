@@ -1,21 +1,17 @@
-/* --- SCROLL SUAVE & OFFSET PERFEITO --- */
 html {
   scroll-behavior: smooth;
 }
 
-/* Ajuste preciso para todas as seções quando clicar no menu */
 section {
-  scroll-margin-top: 100px; /* Altura do seu header fixo + um respiro extra */
+  scroll-margin-top: 100px;
 }
 
-/* Para mobile (header fica um pouco menor em telas pequenas) */
 @media (max-width: 768px) {
   section {
     scroll-margin-top: 90px;
   }
 }
 
-/* --- Variáveis & Configurações --- */
 :root {
   --bg-deep: #020406;
   --primary-blue: #2979FF;
@@ -53,7 +49,6 @@ body {
   background-attachment: fixed;
 }
 
-/* --- Luzes Ambientes Animadas --- */
 .ambient-light {
   position: absolute;
   border-radius: 50%;
@@ -79,7 +74,6 @@ body {
   100% { transform: scale(1.1); opacity: 0.7; }
 }
 
-/* --- Layout Utils --- */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -108,7 +102,6 @@ body {
   margin-right: auto;
 }
 
-/* --- Header Glass --- */
 .glass-header {
   position: fixed;
   top: 0; width: 100%;
@@ -154,7 +147,6 @@ body {
   box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
 }
 
-/* --- Hero Section --- */
 .hero-section {
   min-height: 100vh;
   display: flex; align-items: center; justify-content: space-between;
@@ -202,7 +194,6 @@ body {
   box-shadow: 0 8px 35px rgba(0, 229, 255, 0.6);
 }
 
-/* --- Resto do seu CSS (inalterado, só organizado) --- */
 .glass-card {
   background: linear-gradient(145deg, rgba(20, 30, 40, 0.8) 0%, rgba(10, 15, 20, 0.95) 100%);
   backdrop-filter: blur(20px);
@@ -335,3 +326,134 @@ footer .copy { color: #455A64; }
 @keyframes fadeLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes fadeRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+.qr-wrapper {
+  margin-bottom: 20px;
+  
+  .scan-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    
+    .icon { font-size: 1.2rem; }
+  }
+}
+
+/* Accordion Container */
+.install-guide {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.install-guide[open] {
+  padding-bottom: 10px;
+}
+
+/* O Botão de Abrir (Summary) */
+.guide-trigger {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none; /* Remove triângulo padrão */
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+
+  /* Remove marcador padrão Webkit */
+  &::-webkit-details-marker { display: none; }
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+/* Animação da Seta (Chevron) */
+.chevron-icon {
+  transition: transform 0.3s ease;
+  opacity: 0.7;
+  color: var(--accent-cyan);
+}
+
+.install-guide[open] .chevron-icon {
+  transform: rotate(180deg);
+}
+
+/* Conteúdo do Accordion */
+.guide-content {
+  margin-top: 15px;
+  animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left; /* Garante que o texto fique a esquerda dentro do card centralizado */
+}
+
+/* Blocos de Informação (Warning & Info) */
+.guide-block {
+  padding: 12px 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  
+  .block-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .block-text {
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+  }
+}
+
+/* Estilo Específico: Play Protect (Amarelo/Alerta) */
+.guide-block.warning {
+  background: rgba(255, 193, 7, 0.08); /* Amarelo bem suave */
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  
+  .block-header { color: #FFD54F; } /* Amarelo legível */
+  
+  /* Lista numerada dentro do warning */
+  .step-list {
+    padding-left: 20px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    
+    li { margin-bottom: 4px; }
+    strong { color: #FFD54F; font-weight: 700; }
+  }
+}
+
+/* Estilo Específico: Configurações (Neutro/Cyan) */
+.guide-block.info {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  .block-header { color: var(--accent-cyan); }
+}
+
+/* Linha divisória fina */
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 10px 0;
+}
+
+/* Animação suave de abertura */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
