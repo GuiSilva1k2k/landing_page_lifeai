@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss']
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent {
+  @ViewChild('hamburger') hamburger!: ElementRef;
+  @ViewChild('navMenu') navMenu!: ElementRef;
 
-  currentYear = new Date().getFullYear();
+  toggleMenu() {
+    this.hamburger.nativeElement.classList.toggle('active');
+    this.navMenu.nativeElement.classList.toggle('active');
+  }
 
-  ngOnInit(): void {}
-
-  scrollToSection(sectionId: string) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  closeMenu() {
+    this.hamburger.nativeElement.classList.remove('active');
+    this.navMenu.nativeElement.classList.remove('active');
   }
 }

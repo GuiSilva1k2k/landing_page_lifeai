@@ -8,12 +8,17 @@
         <img src="assets/img/lifeAI_logo.png" alt="LifeAI Icon">
         <span>LifeAI</span>
       </div>
-      <ul class="nav-menu">
-        <li><a href="#hero">Início</a></li>
-        <li><a href="#projeto">O Projeto</a></li>
-        <li><a href="#sobre-nos">Sobre nós</a></li>
-        <li><a href="#contato" class="btn-contact">Contato</a></li>
+      <ul class="nav-menu" #navMenu>
+        <li><a href="#hero" (click)="closeMenu()">Início</a></li>
+        <li><a href="#projeto" (click)="closeMenu()">O Projeto</a></li>
+        <li><a href="#sobre-nos" (click)="closeMenu()">Sobre nós</a></li>
+        <li><a href="#contato" class="btn-contact" (click)="closeMenu()">Contato</a></li>
       </ul>
+      <div class="hamburger" #hamburger (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
   </header>
 
@@ -21,11 +26,11 @@
     <section id="hero" class="hero-section container">
       <div class="hero-content fade-in-left">
         <div class="brand-wrapper">
-          <img src="assets/img/lifeAI_logo.png" alt="Logo da LifeAI" class="hero-logo" />
+          <img src="assets/img/lifeAI_logo.png" alt="Logo da LifeAI" class="hero-logo">
           <h1 class="brand">LifeAI</h1>
         </div>
         <p class="hero-tagline">
-          Tecnologia e automação inteligente <br />
+          Tecnologia e automação inteligente <br>
           para elevar o seu dia a dia.
         </p>
         <div class="hero-actions">
@@ -35,45 +40,45 @@
 
       <div class="hero-visual fade-in-right">
         <div class="qr-card glass-card">
-          
           <div class="qr-wrapper">
-            <img src="assets/img/qr.png" alt="Baixe o App LifeAI" class="qr-code" />
+            <a href="https://drive.google.com/file/d/1t9WSevaY-PyFBCwdtA--iABnuTDcztJY/view?usp=drive_link" target="_blank" rel="noopener">
+              <img src="assets/img/qr.png" alt="Baixe o App LifeAI" class="qr-code">
+            </a>
             <div class="scan-label">
-              <span class="icon">📱</span> Escaneie para baixar
+              <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+              Clique ou escaneie para baixar
             </div>
           </div>
 
           <details class="install-guide">
             <summary class="guide-trigger">
               <span>Precisa de ajuda na instalação?</span>
-              <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
             </summary>
-            
             <div class="guide-content">
               <div class="guide-block warning">
                 <div class="block-header">
-                  <span class="block-icon">🛡️</span>
+                  <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
                   <strong>Google Play Protect</strong>
                 </div>
                 <p class="block-text">Se aparecer "App bloqueado":</p>
                 <ol class="step-list">
-                  <li>Toque em <strong>"Mais detalhes"</strong> ▾</li>
+                  <li>Toque em <strong>"Mais detalhes"</strong></li>
                   <li>Selecione <strong>"Instalar assim mesmo"</strong></li>
                 </ol>
               </div>
-
               <div class="divider"></div>
-
               <div class="guide-block info">
                 <div class="block-header">
-                  <span class="block-icon">⚙️</span>
+                  <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
                   <strong>Permissão de Fonte</strong>
                 </div>
-                <p class="block-text">Vá em Configurações > Ative "Permitir desta fonte".</p>
+                <p class="block-text">Vá em Configurações → Ative "Permitir desta fonte".</p>
               </div>
             </div>
           </details>
-
         </div>
       </div>
     </section>
@@ -82,9 +87,7 @@
       <div class="container">
         <div class="project-intro center-text fade-in-up">
           <h2 class="section-title">Inovação nascida na FPFTech</h2>
-          <p class="section-subtitle">
-            Um projeto acadêmico com ambição profissional: propagar saúde através da tecnologia.
-          </p>
+          <p class="section-subtitle">Um projeto acadêmico com ambição profissional: propagar saúde através da tecnologia.</p>
           <p class="project-description">
             O <strong>LifeAI</strong> é uma solução integrada de bem-estar desenvolvida em <strong>Kotlin</strong>.
             Utilizamos Inteligência Artificial para transformar seus dados diários em recomendações personalizadas.
@@ -93,19 +96,25 @@
 
         <div class="tech-stack-grid">
           <div class="tech-card glass-card fade-in-left">
-            <div class="icon-wrapper">📱</div>
+            <div class="icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            </div>
             <h3>Mobile Nativo</h3>
             <p>App Android construído com <strong>Jetpack Compose</strong> e arquitetura <strong>MVVM</strong>.</p>
           </div>
 
           <div class="tech-card glass-card fade-in-up">
-            <div class="icon-wrapper">☁️</div>
+            <div class="icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+            </div>
             <h3>Infraestrutura AWS</h3>
             <p>Orquestração robusta utilizando <strong>Kubernetes (K3s)</strong> e Docker para deploy contínuo.</p>
           </div>
 
           <div class="tech-card glass-card fade-in-right">
-            <div class="icon-wrapper">🔒</div>
+            <div class="icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
             <h3>Backend & Dados</h3>
             <p>APIs seguras em <strong>Node.js/Django</strong> com banco de dados MySQL integrado.</p>
           </div>
@@ -117,7 +126,6 @@
       <div class="container">
         <h2 class="section-title">Quem somos</h2>
         <p class="section-subtitle">Equipe CALAMITAS</p>
-
         <div class="team-grid">
           <a href="https://github.com/dissectedv" target="_blank" class="member-card glass-card">
             <div class="avatar-placeholder">JS</div>
@@ -125,14 +133,12 @@
             <span class="role">Front-end Developer</span>
             <p>Foco em interfaces inteligentes e responsivas.</p>
           </a>
-
           <a href="https://github.com/Gust4hib" target="_blank" class="member-card glass-card">
             <div class="avatar-placeholder">GF</div>
             <h3>Gustavo Fernandes</h3>
             <span class="role">UX/UI Specialist</span>
             <p>Experiência em design centrado no usuário.</p>
           </a>
-
           <a href="https://github.com/GuiSilva1k2k" target="_blank" class="member-card glass-card">
             <div class="avatar-placeholder">GS</div>
             <h3>Guilherme Silva</h3>
@@ -147,7 +153,6 @@
       <div class="container center-text">
         <h2 class="section-title">Vamos conversar?</h2>
         <p class="contact-desc">Estamos prontos para transformar sua ideia em realidade.</p>
-
         <a href="mailto:contatolifeai@gmail.com" class="email-link">
           contatolifeai&#64;gmail.com
         </a>
@@ -157,12 +162,8 @@
 
   <footer>
     <div class="container footer-content">
-      <div class="footer-brand">
-        <strong>LifeAI</strong>
-      </div>
-      <div class="copy">
-        © {{ currentYear }} LifeAI. Todos os direitos reservados.
-      </div>
+      <div class="footer-brand"><strong>LifeAI</strong></div>
+      <div class="copy">© 2025 LifeAI. Todos os direitos reservados.</div>
     </div>
   </footer>
 </body>
